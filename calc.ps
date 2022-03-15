@@ -1,0 +1,188 @@
+
+Import-Module ActiveDirectory
+
+
+$main_form = New-Object System.Windows.Forms.Form
+$main_form.Text ="Calculator.exe"
+$main_form.Width = 282
+$main_form.Height = 355
+$main_form.StartPosition = 'CenterScreen'
+
+$totOne = [int]"0"
+$totTwo = [int]"0"
+
+$oneButton = New-Object System.Windows.Forms.Button
+$oneButton.Location = New-Object System.Drawing.Size(3, 237)
+$oneButton.Size = New-Object System.Drawing.Size(50, 50)
+$oneButton.Text = "1"
+$main_form.Controls.Add($oneButton)
+$oneButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "1"
+})
+
+$twoButton = New-Object System.Windows.Forms.Button
+$twoButton.Location = New-Object System.Drawing.Size(55, 237)
+$twoButton.Size = New-Object System.Drawing.Size(50, 50)
+$twoButton.Text = "2"
+$main_form.Controls.Add($twoButton)
+$twoButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "2"
+})
+
+$threeButton = New-Object System.Windows.Forms.Button
+$threeButton.Location = New-Object System.Drawing.Size(107, 237)
+$threeButton.Size = New-Object System.Drawing.Size(50, 50)
+$threeButton.Text = "3"
+$main_form.Controls.Add($threeButton)
+$threeButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "3"
+})
+
+$fourButton = New-Object System.Windows.Forms.Button
+$fourButton.Location = New-Object System.Drawing.Size(3, 185)
+$fourButton.Size = New-Object System.Drawing.Size(50, 50)
+$fourButton.Text = "4"
+$main_form.Controls.Add($fourButton)
+$fourButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "4"
+})
+
+$fiveButton = New-Object System.Windows.Forms.Button
+$fiveButton.Location = New-Object System.Drawing.Size(55, 185)
+$fiveButton.Size = New-Object System.Drawing.Size(50, 50)
+$fiveButton.Text = "5"
+$main_form.Controls.Add($fiveButton)
+$fiveButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "5"
+})
+
+$sixButton = New-Object System.Windows.Forms.Button
+$sixButton.Location = New-Object System.Drawing.Size(107, 185)
+$sixButton.Size = New-Object System.Drawing.Size(50, 50)
+$sixButton.Text = "6"
+$main_form.Controls.Add($sixButton)
+$sixButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "6"
+})
+
+$sevenButton = New-Object System.Windows.Forms.Button
+$sevenButton.Location = New-Object System.Drawing.Size(3, 133)
+$sevenButton.Size = New-Object System.Drawing.Size(50, 50)
+$sevenButton.Text = "7"
+$main_form.Controls.Add($sevenButton)
+$sevenButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "7"
+})
+
+$eightButton = New-Object System.Windows.Forms.Button
+$eightButton.Location = New-Object System.Drawing.Size(55, 133)
+$eightButton.Size = New-Object System.Drawing.Size(50, 50)
+$eightButton.Text = "8"
+$main_form.Controls.Add($eightButton)
+$eightButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "8"
+})
+
+$nineButton = New-Object System.Windows.Forms.Button
+$nineButton.Location = New-Object System.Drawing.Size(107, 133)
+$nineButton.Size = New-Object System.Drawing.Size(50, 50)
+$nineButton.Text = "9"
+$main_form.Controls.Add($nineButton)
+$nineButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "9"
+})
+
+$zeroButton = New-Object System.Windows.Forms.Button
+$zeroButton.Location = New-Object System.Drawing.Size(160, 237)
+$zeroButton.Size = New-Object System.Drawing.Size(50, 50)
+$zeroButton.Text = "0"
+$main_form.Controls.Add($zeroButton)
+$zeroButton.Add_Click({
+    $numLabel.Text = $numLabel.Text + "0"
+})
+
+$addButton = New-Object System.Windows.Forms.Button
+$addButton.Location = New-Object System.Drawing.Size(211, 81)
+$addButton.Size = New-Object System.Drawing.Size(50, 50)
+$addButton.Text = "+"
+$main_form.Controls.Add($addButton)
+
+$subtractButton = New-Object System.Windows.Forms.Button
+$subtractButton.Location = New-Object System.Drawing.Size(211, 133)
+$subtractButton.Size = New-Object System.Drawing.Size(50, 50)
+$subtractButton.Text = "-"
+$main_form.Controls.Add($subtractButton)
+
+$divisionButton = New-Object System.Windows.Forms.Button
+$divisionButton.Location = New-Object System.Drawing.Size(211, 237)
+$divisionButton.Size = New-Object System.Drawing.Size(50, 50)
+$divisionButton.Text = "/"
+$main_form.Controls.Add($divisionButton)
+
+$multButton = New-Object System.Windows.Forms.Button
+$multButton.Location = New-Object System.Drawing.Size(211, 185)
+$multButton.Size = New-Object System.Drawing.Size(50, 50)
+$multButton.Text = "*"
+$main_form.Controls.Add($multButton)
+
+$clearButton = New-Object System.Windows.Forms.Button
+$clearButton.Location = New-Object System.Drawing.Size(211, 29)
+$clearButton.Size = New-Object System.Drawing.Size(50, 50)
+$clearButton.Text = "Clear"
+$main_form.Controls.Add($clearButton)
+$clearButton.Add_Click({
+    $numLabel.Text = ""
+})
+
+$enterOne = New-Object System.Windows.Forms.Button
+$enterOne.Location = New-Object System.Drawing.Size(160, 133)
+$enterOne.Size = New-Object System.Drawing.Size(50, 50)
+$enterOne.Text = "Enter 1"
+$main_form.Controls.Add($enterOne)
+$clearButton.Add_Click({
+
+    $oneLabel.Text = $numLabel.Text
+    $totOne = [int]$numLabel.Text
+    $numLabel.Text = ""
+})
+
+$enterTwo = New-Object System.Windows.Forms.Button
+$enterTwo.Location = New-Object System.Drawing.Size(160, 185)
+$enterTwo.Size = New-Object System.Drawing.Size(50, 50)
+$enterTwo.Text = "Enter 2"
+$main_form.Controls.Add($enterTwo)
+$clearButton.Add_Click({
+    $totTwo = [int]$numLabel.Text
+    $numLabel.Text = ""
+})
+
+
+$numLabel = New-Object System.Windows.Forms.Label
+$numLabel.Location = New-Object System.Drawing.Size(8, 9)
+$numLabel.AutoSize = $true
+$numLabel.Text = ""
+$main_form.Controls.Add($numLabel)
+
+$oneLabel = New-Object System.Windows.Forms.Label
+$oneLabel.Location = New-Object System.Drawing.Size(3, 25)
+$oneLabel.AutoSize = $true
+$oneLabel.Text = ""
+$main_form.Controls.Add($oneLabel)
+
+
+
+
+$ExitButton = New-Object System.Windows.Forms.Button
+$ExitButton.Location = New-Object System.Drawing.Size(3,289)
+$ExitButton.Size = New-Object System.Drawing.Size(50,20)
+$ExitButton.Text = "Exit"
+$main_form.Controls.Add($ExitButton)
+$ExitButton.Add_Click({
+
+$main_form.close()
+return
+exit
+
+})
+
+$main_form.ShowDialog() | Out-Null
